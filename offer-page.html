@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्रीमती शर्मा ब्यूटी पार्लर - भारत की पारंपरिक सुंदरता</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(135deg, #f9f0ff, #fff9f0);
+            color: #4a2c2a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, #8e44ad, #e84393);
+            color: white;
+            padding: 15px 0;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 12px rgba(142, 68, 173, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #ffd700;
+        }
+        
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 20px;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 50px 0;
+            margin-top: 30px;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #8e44ad;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .features {
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            background: #e84393;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .feature-text h3 {
+            font-size: 1.3rem;
+            color: #8e44ad;
+            margin-bottom: 5px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .image-frame {
+            border: 8px solid white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: rotate(3deg);
+        }
+        
+        .image-frame img {
+            width: 100%;
+            display: block;
+        }
+        
+        .floral-decoration {
+            position: absolute;
+            width: 150px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .floral-1 {
+            top: -30px;
+            left: -30px;
+            transform: rotate(15deg);
+        }
+        
+        .floral-2 {
+            bottom: -20px;
+            right: -30px;
+            transform: rotate(245deg);
+        }
+        
+        /* Coupon Section */
+        .coupon-section {
+            background: linear-gradient(135deg, #ffd3e0, #ffcce5);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(232, 67, 147, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coupon-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #8e44ad;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .coupon-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .coupon {
+            width: 350px;
+            background: linear-gradient(135deg, #ffffff, #fff9fc);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(142, 68, 173, 0.3);
+            position: relative;
+            border: 2px dashed #e84393;
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+        }
+        
+        .coupon:hover {
+            transform: rotate(0) scale(1.03);
+            box-shadow: 0 15px 40px rgba(142, 68, 173, 0.4);
+        }
+        
+        .coupon-header {
+            background: #8e44ad;
+            color: white;
+            padding: 15px;
+            border-radius: 15px 15px 0 0;
+            margin: -30px -30px 20px -30px;
+        }
+        
+        .coupon-header h3 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+        
+        .discount {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #e84393;
+            margin: 20px 0;
+            text-shadow: 3px 3px 0 rgba(232, 67, 147, 0.1);
+        }
+        
+        .discount span {
+            font-size: 2rem;
+            vertical-align: super;
+        }
+        
+        .offer-details {
+            background: #fff0f5;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #e84393;
+        }
+        
+        .offer-details p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #8e44ad;
+        }
+        
+        .coupon-code {
+            background: #f8f8f8;
+            padding: 12px;
+            border: 2px dashed #e84393;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #8e44ad;
+        }
+        
+        .validity {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 15px;
+        }
+        
+        .terms {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 20px;
+        }
+        
+        /* Services Section */
+        .services {
+            margin: 60px 0;
+        }
+        
+        .services h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: #8e44ad;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(142, 68, 173, 0.2);
+        }
+        
+        .service-icon {
+            height: 150px;
+            background: linear-gradient(135deg, #e84393, #8e44ad);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: #8e44ad;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-content ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .service-content li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .service-content li:before {
+            content: "•";
+            color: #e84393;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #8e44ad, #6c3483);
+            color: white;
+            padding: 40px 0 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #ffd700;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #ffd700;
+        }
+        
+        .hours p {
+            margin-bottom: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Button */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #e84393, #8e44ad);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(232, 67, 147, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(232, 67, 147, 0.6);
+        }
+        
+        .btn-large {
+            padding: 18px 45px;
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .coupon-section {
+                padding: 30px 20px;
+            }
+            
+            .discount {
+                font-size: 3.5rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+            }
+            
+            nav li {
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-spa"></i>
+                <div class="logo-text">
+                    <h1>श्रीमती शर्मा ब्यूटी पार्लर</h1>
+                    <p>भारत की पारंपरिक सुंदरता का अनुभव</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> होम</a></li>
+                    <li><a href="#"><i class="fas fa-spa"></i> सेवाएँ</a></li>
+                    <li><a href="#"><i class="fas fa-gift"></i> ऑफ़र</a></li>
+                    <li><a href="#"><i class="fas fa-phone-alt"></i> संपर्क</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>भारतीय परंपराओं के साथ आधुनिक सौंदर्य</h2>
+                <p>20 वर्षों के अनुभव के साथ, हम प्राकृतिक सुंदरता को बढ़ाने के लिए पारंपरिक भारतीय तकनीकों और आधुनिक उपचारों को जोड़ते हैं।</p>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>प्रमाणित विशेषज्ञ</h3>
+                            <p>अत्यधिक प्रशिक्षित और अनुभवी ब्यूटीशियन</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>प्राकृतिक उत्पाद</h3>
+                            <p>हर्बल और जैविक सामग्री से बने उत्पाद</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>व्यक्तिगत देखभाल</h3>
+                            <p>प्रत्येक ग्राहक की विशिष्ट आवश्यकताओं के अनुरूप सेवाएँ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn btn-large"><i class="fas fa-calendar-check"></i> अपॉइंटमेंट बुक करें</a>
+            </div>
+            
+            <div class="hero-image">
+                <div class="image-frame">
+                    <img src="https://images.unsplash.com/photo-1599351431404-4335f5fdd06c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=600&ixlib=rb-1.2.1&q=80" alt="Indian Beauty Parlor">
+                </div>
+                <img src="https://cdn.pixabay.com/photo/2017/01/31/19/07/floral-2026268_960_720.png" class="floral-decoration floral-1">
+                <img src="https://cdn.pixabay.com/photo/2017/01/31/19/07/floral-2026268_960_720.png" class="floral-decoration floral-2">
+            </div>
+        </section>
+        
+        <section class="coupon-section">
+            <h2><i class="fas fa-gift"></i> विशेष छूट प्राप्त करें!</h2>
+            <p>हमारी लक्ज़री सेवाओं का अनुभव करें और अपनी पहली यात्रा पर भारी बचत करें</p>
+            
+            <div class="coupon-container">
+                <div class="coupon">
+                    <div class="coupon-header">
+                        <h3>वेलकम ऑफ़र</h3>
+                    </div>
+                    <div class="discount">30<span>%</span></div>
+                    <p>किसी भी फेशियल या हेयर सर्विस पर</p>
+                    
+                    <div class="offer-details">
+                        <p>सभी नए ग्राहकों के लिए विशेष ऑफर</p>
+                    </div>
+                    
+                    <div class="coupon-code">
+                        SHARMABEAUTY30
+                    </div>
+                    
+                    <p>बस कोड दिखाएँ या प्रिंट आउट लाएँ</p>
+                    
+                    <div class="validity">
+                        <i class="far fa-calendar-alt"></i> 31 दिसंबर, 2023 तक वैध
+                    </div>
+                    
+                    <div class="terms">
+                        * एक ग्राहक प्रति कूपन। कुछ सेवाओं पर लागू नहीं होता है।
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="services">
+            <h2>हमारी प्रीमियम सेवाएँ</h2>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>फेशियल उपचार</h3>
+                        <ul>
+                            <li>गोल्ड फेशियल</li>
+                            <li>पार्लर स्पेशल फेशियल</li>
+                            <li>ऑक्सीजन फेशियल</li>
+                            <li>एंटी-एजिंग फेशियल</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>हेयर केयर</h3>
+                        <ul>
+                            <li>हैड स्पा</li>
+                            <li>केराटीन ट्रीटमेंट</li>
+                            <li>हर्बल हेयर कलर</li>
+                            <li>बालों की कंडीशनिंग</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>हाथ और पैर</h3>
+                        <ul>
+                            <li>मैनीक्योर और पेडीक्योर</li>
+                            <li>पारंपरिक मेहँदी डिज़ाइन</li>
+                            <li>नाखून कला</li>
+                            <li>हर्बल फुट स्पा</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brush"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>मेकअप सेवाएँ</h3>
+                        <ul>
+                            <li>शादी का मेकअप</li>
+                            <li>पार्टी मेकअप</li>
+                            <li>ब्राइडल मेकअप</li>
+                            <li>प्राकृतिक दैनिक मेकअप</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>संपर्क करें</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 सुंदरता मार्ग, मुंबई, भारत</p>
+                        <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@sharmabeautyparlor.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>खुलने का समय</h3>
+                    <div class="hours">
+                        <p>सोमवार - शनिवार: 9:00 AM - 8:00 PM</p>
+                        <p>रविवार: 10:00 AM - 6:00 PM</p>
+                        <p>त्योहारों पर विशेष समय</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>सोशल मीडिया</h3>
+                    <div class="social-links">
+                        <p><i class="fab fa-facebook"></i> Facebook</p>
+                        <p><i class="fab fa-instagram"></i> Instagram</p>
+                        <p><i class="fab fa-youtube"></i> YouTube</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 श्रीमती शर्मा ब्यूटी पार्लर. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for the coupon
+        document.addEventListener('DOMContentLoaded', function() {
+            const coupon = document.querySelector('.coupon');
+            
+            setInterval(() => {
+                coupon.style.transform = coupon.style.transform.includes('rotate(-2deg)') ? 
+                    'rotate(2deg)' : 'rotate(-2deg)';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
