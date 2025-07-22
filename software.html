@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शॉप रेफरल सिस्टम - ग्राहकों से ग्राहक बनाएँ!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Hind:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a3a5f, #2c5f8a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            font-family: 'Hind', 'Segoe UI', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .pamphlet {
+            width: 800px;
+            min-height: 1100px;
+            background: #ffffff;
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            position: relative;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            text-align: center;
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+        }
+        
+        h1 {
+            color: #2c5f8a;
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tagline {
+            color: #4CAF50;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin: 40px 0;
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
+            border: 3px solid white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .qr-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 30px 0 50px;
+        }
+        
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            margin-bottom: 25px;
+            border: 4px solid #4CAF50;
+            position: relative;
+        }
+        
+        .qr-code {
+            width: 240px;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            overflow: hidden;
+            background: url('https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://example.com/shop-referral&bgcolor=F8F9FA&color=2c5f8a') center/cover;
+        }
+        
+        .qr-label {
+            font-size: 32px;
+            font-weight: 800;
+            color: #2c5f8a;
+            margin-top: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        
+        .flow-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border: 2px solid #e0e0e0;
+        }
+        
+        .flow-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #2c5f8a;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: relative;
+        }
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(233, 245, 233, 0.5);
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2c5f8a, #4CAF50);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin-right: 30px;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(44, 95, 138, 0.5);
+        }
+        
+        .step-content {
+            font-size: 24px;
+            line-height: 1.5;
+            color: #333;
+            font-weight: 600;
+            flex-grow: 1;
+        }
+        
+        .step-icon {
+            font-size: 50px;
+            margin-left: 30px;
+            color: #4CAF50;
+            flex-shrink: 0;
+        }
+        
+        .arrow-down {
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            color: #4CAF50;
+            animation: bounce 1.5s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        
+        .viral-marketing {
+            background: #e3f2fd;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 50px 0;
+            text-align: center;
+            border: 3px solid #2196F3;
+        }
+        
+        .viral-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1976D2;
+            margin-bottom: 25px;
+        }
+        
+        .viral-content {
+            font-size: 26px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .viral-highlight {
+            font-size: 30px;
+            font-weight: 800;
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        
+        .customization-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .custom-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid #e0e0e0;
+        }
+        
+        .custom-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #2c5f8a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .custom-title i {
+            margin-right: 15px;
+            font-size: 36px;
+            color: #FF9800;
+        }
+        
+        .custom-content {
+            font-size: 22px;
+            line-height: 1.6;
+        }
+        
+        .benefits-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid #e0e0e0;
+            transition: all 0.4s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .benefit-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #2c5f8a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefit-title i {
+            margin-right: 15px;
+            font-size: 36px;
+        }
+        
+        .benefit-content {
+            font-size: 22px;
+            line-height: 1.6;
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #2c5f8a, #4CAF50);
+            color: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(44, 95, 138, 0.4);
+        }
+        
+        .stat-value {
+            font-size: 56px;
+            font-weight: 900;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .stat-label {
+            font-size: 26px;
+            font-weight: 700;
+        }
+        
+        .urgency-box {
+            background: linear-gradient(135deg, #ff5722, #ff9800);
+            color: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px 0;
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            box-shadow: 0 20px 40px rgba(255, 87, 34, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid white;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #2c5f8a, #2196F3);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 25px;
+            margin-top: 30px;
+            box-shadow: 0 20px 40px rgba(44, 95, 138, 0.5);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid white;
+        }
+        
+        .contact-title {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            color: rgba(0,0,0,0.05);
+            font-size: 24px;
+            font-weight: bold;
+            transform: rotate(-5deg);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #2c5f8a, #4CAF50);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(44, 95, 138, 0.7);
+            font-weight: bold;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 45px rgba(44, 95, 138, 0.9);
+        }
+        
+        .decoration {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .dec-1 {
+            background: #4CAF50;
+            top: -150px;
+            right: -150px;
+        }
+        
+        .dec-2 {
+            background: #2196F3;
+            bottom: -150px;
+            left: -150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pamphlet">
+        <div class="decoration dec-1"></div>
+        <div class="decoration dec-2"></div>
+        
+        <div class="header">
+            <h1>अपने ग्राहक बनाएँ आपकी सेल्स टीम!</h1>
+            <div class="tagline">हमारे माउथ मार्केटिंग सॉफ्टवेयर से 10X बिज़नेस ग्रोथ, गारंटीड!</div>
+        </div>
+        
+        <div class="highlight-box pulse">
+            <i class="fas fa-bullhorn"></i> नया ग्राहक स्कैन करेगा, शेयर करेगा, चेन बनाएगा - आपका बिज़नेस बढ़ाएगा!
+        </div>
+        
+        <div class="qr-section">
+            <div class="qr-container floating">
+                <div class="qr-code"></div>
+            </div>
+            <div class="qr-label">स्कैन करें और वायरल मार्केटिंग शुरू करें!</div>
+        </div>
+        
+        <div class="flow-section">
+            <div class="flow-title">हमारा सॉफ्टवेयर कैसे काम करता है, इसका सरल और प्रभावी फ्लो।</div>
+            
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        नया ग्राहक आपका QR कोड स्कैन करता है
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                </div>
+                
+                <div class="arrow-down">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        ऑफर देखने के लिए व्हाट्सएप पर दोस्तों को कूपन शेयर करता है
+                    </div>
+                    <div class="step-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </div>
+                
+                <div class="arrow-down">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        दोस्त कूपन देखने के लिए अपने दोस्तों को आगे शेयर करते हैं
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="arrow-down">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        कूपन के साथ आपकी दुकान की तारीफ भी शेयर होती है
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="arrow-down">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        यह चेन बनती जाती है और आपका बिज़नेस 10X बढ़ता है!
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="viral-marketing">
+            <div class="viral-title">
+                <i class="fas fa-viruses"></i> दुनिया की सबसे ताकतवर मार्केटिंग
+            </div>
+            <div class="viral-content">
+                हमारा सिस्टम वायरल मार्केटिंग का सबसे प्रभावी रूप है। जब ग्राहक आपस में कूपन शेयर करते हैं, तो हर शेयर के साथ आपकी दुकान की तारीफ भी जाती है। यह माउथ मार्केटिंग दुनिया में नए ग्राहक जुटाने का सबसे विश्वसनीय तरीका है!
+            </div>
+            <div class="viral-highlight">
+                बिना शेयर किए कोई कूपन नहीं देख सकता - यही इसकी ताकत है!
+            </div>
+        </div>
+        
+        <div class="customization-section">
+            <div class="custom-card">
+                <div class="custom-title">
+                    <i class="fas fa-sliders-h"></i> ऑफर कस्टमाइज़ करें
+                </div>
+                <div class="custom-content">
+                    आप खुद तय कर सकते हैं कि कितना डिस्काउंट देना है, कौन सा ऑफर देना है। सिस्टम में आसानी से बदलाव कर सकते हैं।
+                </div>
+            </div>
+            
+            <div class="custom-card">
+                <div class="custom-title">
+                    <i class="fas fa-bullhorn"></i> ब्रांडिंग कंट्रोल
+                </div>
+                <div class="custom-content">
+                    शेयर लिंक में कौन सी जानकारी जाएगी - आपकी दुकान की खासियत, ऑफर या तारीफ - आप खुद तय कर सकते हैं।
+                </div>
+            </div>
+        </div>
+        
+        <div class="benefits-section">
+            <div class="benefit-card">
+                <div class="benefit-title">
+                    <i class="fas fa-virus"></i> वायरल मार्केटिंग की ताकत
+                </div>
+                <div class="benefit-content">
+                    यह सिस्टम आपके ग्राहकों को आपका मार्केटिंग एजेंट बना देता है। वे खुद-ब-खुद आपके बिज़नेस का प्रचार करते हैं और नए ग्राहक लाते हैं।
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-title">
+                    <i class="fas fa-link"></i> शेयरिंग चेन बनाना
+                </div>
+                <div class="benefit-content">
+                    हर ग्राहक को कूपन देखने के लिए शेयर करना होता है, जिससे एक स्वतः चेन बनती है। यह चेन आपके बिज़नेस को घर-घर पहुँचाती है।
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-value">10X</div>
+                <div class="stat-label">बिज़नेस ग्रोथ</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value">95%</div>
+                <div class="stat-label">विश्वसनीयता बढ़ती है</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value">100+</div>
+                <div class="stat-label">हर महीने नए ग्राहक जुड़ेंगे।</div>
+            </div>
+        </div>
+        
+        <div class="urgency-box pulse">
+            <i class="fas fa-exclamation-circle"></i> जो बिज़नेस आज इस सॉफ्टवेयर को अपनाता है, वही कल अपने एरिया का लीडर बनता है।
+अगर आप रुके, तो ग्राहक और मुनाफा — दोनों आपके प्रतियोगियों के पास जा सकते हैं।
+        </div>
+        
+        <div class="contact-box floating">
+            <div class="contact-title">सॉफ्टवेयर डेमो देखने के लिए आज ही कॉल करें।</div>
+            <div class="contact-info">☎️ +91-9887353702</div>
+            <div style="font-size: 28px; margin-top: 20px;">24 घंटे हेल्पलाइन - हमारी टीम आपकी मदद के लिए तैयार है</div>
+        </div>
+        
+        <div class="watermark">Viral Marketing Power</div>
+    </div>
+    
+   
