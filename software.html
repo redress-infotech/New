@@ -26,22 +26,24 @@
         }
         
         .pamphlet {
-            width: 800px;
+            width: 100%;
+            max-width: 800px;
             min-height: 1100px;
             background: #ffffff;
             border-radius: 30px;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
             overflow: hidden;
             position: relative;
-            padding: 50px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
+            margin: 20px auto;
         }
         
         .header {
             text-align: center;
-            padding-bottom: 25px;
-            margin-bottom: 30px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
             position: relative;
         }
         
@@ -58,9 +60,9 @@
         
         h1 {
             color: #2c5f8a;
-            font-size: 48px;
+            font-size: clamp(28px, 5vw, 48px);
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.2;
             letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
@@ -68,21 +70,21 @@
         
         .tagline {
             color: #4CAF50;
-            font-size: 36px;
+            font-size: clamp(20px, 3.5vw, 36px);
             font-weight: 800;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
         
         .highlight-box {
             background: linear-gradient(45deg, #4CAF50, #8BC34A);
             color: white;
-            padding: 25px;
+            padding: clamp(15px, 2vw, 25px);
             border-radius: 20px;
             text-align: center;
-            font-size: 32px;
+            font-size: clamp(18px, 3vw, 32px);
             font-weight: 800;
-            margin: 40px 0;
+            margin: clamp(20px, 3vw, 40px) 0;
             box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
             border: 3px solid white;
             position: relative;
@@ -91,25 +93,27 @@
         
         .qr-section {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            margin: 30px 0 50px;
+            margin: clamp(15px, 2vw, 30px) 0 clamp(20px, 3vw, 50px);
         }
         
         .qr-container {
             background: white;
-            padding: 20px;
+            padding: clamp(10px, 1.5vw, 20px);
             border-radius: 25px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            margin-bottom: 25px;
+            margin-bottom: clamp(10px, 2vw, 25px);
             border: 4px solid #4CAF50;
             position: relative;
+            display: flex;
+            justify-content: center;
         }
         
         .qr-code {
-            width: 240px;
-            height: 240px;
+            width: clamp(180px, 30vw, 240px);
+            height: clamp(180px, 30vw, 240px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -119,10 +123,10 @@
         }
         
         .qr-label {
-            font-size: 32px;
+            font-size: clamp(20px, 3vw, 32px);
             font-weight: 800;
             color: #2c5f8a;
-            margin-top: 20px;
+            margin-top: clamp(10px, 2vw, 20px);
             text-align: center;
             letter-spacing: 1px;
         }
@@ -130,25 +134,25 @@
         .flow-section {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 25px;
-            padding: 40px;
-            margin: 40px 0;
+            padding: clamp(20px, 3vw, 40px);
+            margin: clamp(20px, 3vw, 40px) 0;
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             border: 2px solid #e0e0e0;
         }
         
         .flow-title {
-            font-size: 36px;
+            font-size: clamp(24px, 3.5vw, 36px);
             font-weight: 800;
             color: #2c5f8a;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: clamp(20px, 3vw, 40px);
             letter-spacing: 1px;
         }
         
         .flow-diagram {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: clamp(20px, 3vw, 40px);
             position: relative;
         }
         
@@ -156,48 +160,54 @@
             display: flex;
             align-items: center;
             position: relative;
-            padding: 20px;
+            padding: clamp(10px, 2vw, 20px);
             border-radius: 15px;
             background: rgba(233, 245, 233, 0.5);
+            flex-wrap: wrap;
         }
         
         .step-number {
-            width: 70px;
-            height: 70px;
+            width: clamp(50px, 8vw, 70px);
+            height: clamp(50px, 8vw, 70px);
             background: linear-gradient(135deg, #2c5f8a, #4CAF50);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: clamp(24px, 3.5vw, 32px);
             font-weight: 800;
-            margin-right: 30px;
+            margin-right: clamp(10px, 2vw, 30px);
             flex-shrink: 0;
             box-shadow: 0 8px 20px rgba(44, 95, 138, 0.5);
         }
         
         .step-content {
-            font-size: 24px;
+            font-size: clamp(16px, 2.5vw, 24px);
             line-height: 1.5;
             color: #333;
             font-weight: 600;
             flex-grow: 1;
+            min-width: 50%;
+            margin: clamp(10px, 1.5vw, 15px) 0;
         }
         
         .step-icon {
-            font-size: 50px;
-            margin-left: 30px;
+            font-size: clamp(30px, 5vw, 50px);
+            margin-left: clamp(10px, 2vw, 30px);
             color: #4CAF50;
             flex-shrink: 0;
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
         }
         
         .arrow-down {
             position: absolute;
-            bottom: -45px;
+            bottom: clamp(-25px, -3vw, -45px);
             left: 50%;
             transform: translateX(-50%);
-            font-size: 40px;
+            font-size: clamp(24px, 3.5vw, 40px);
             color: #4CAF50;
             animation: bounce 1.5s infinite;
         }
@@ -210,82 +220,97 @@
         .viral-marketing {
             background: #e3f2fd;
             border-radius: 20px;
-            padding: 30px;
-            margin: 50px 0;
+            padding: clamp(15px, 2.5vw, 30px);
+            margin: clamp(20px, 3vw, 50px) 0;
             text-align: center;
             border: 3px solid #2196F3;
         }
         
         .viral-title {
-            font-size: 36px;
+            font-size: clamp(24px, 3.5vw, 36px);
             font-weight: 800;
             color: #1976D2;
-            margin-bottom: 25px;
+            margin-bottom: clamp(15px, 2vw, 25px);
         }
         
         .viral-content {
-            font-size: 26px;
+            font-size: clamp(16px, 2.5vw, 26px);
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: clamp(10px, 2vw, 20px);
         }
         
         .viral-highlight {
-            font-size: 30px;
+            font-size: clamp(18px, 3vw, 30px);
             font-weight: 800;
             color: #d32f2f;
             background: #ffebee;
-            padding: 15px;
+            padding: clamp(10px, 1.5vw, 15px);
             border-radius: 10px;
             display: inline-block;
-            margin: 20px 0;
+            margin: clamp(10px, 2vw, 20px) 0;
         }
         
         .customization-section {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 50px 0;
+            grid-template-columns: 1fr;
+            gap: clamp(15px, 2.5vw, 30px);
+            margin: clamp(20px, 3vw, 50px) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .customization-section {
+                grid-template-columns: 1fr 1fr;
+            }
         }
         
         .custom-card {
             background: white;
             border-radius: 20px;
-            padding: 30px;
+            padding: clamp(15px, 2.5vw, 30px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             border: 2px solid #e0e0e0;
         }
         
         .custom-title {
-            font-size: 28px;
+            font-size: clamp(20px, 3vw, 28px);
             font-weight: 800;
             color: #2c5f8a;
-            margin-bottom: 20px;
+            margin-bottom: clamp(10px, 2vw, 20px);
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
         }
         
         .custom-title i {
-            margin-right: 15px;
-            font-size: 36px;
+            margin-right: clamp(8px, 1.5vw, 15px);
+            font-size: clamp(24px, 4vw, 36px);
             color: #FF9800;
         }
         
         .custom-content {
-            font-size: 22px;
+            font-size: clamp(16px, 2.5vw, 22px);
             line-height: 1.6;
+            text-align: center;
         }
         
         .benefits-section {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 50px 0;
+            grid-template-columns: 1fr;
+            gap: clamp(15px, 2.5vw, 30px);
+            margin: clamp(20px, 3vw, 50px) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .benefits-section {
+                grid-template-columns: 1fr 1fr;
+            }
         }
         
         .benefit-card {
             background: white;
             border-radius: 20px;
-            padding: 30px;
+            padding: clamp(15px, 2.5vw, 30px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             border: 2px solid #e0e0e0;
             transition: all 0.4s ease;
@@ -297,49 +322,64 @@
         }
         
         .benefit-title {
-            font-size: 28px;
+            font-size: clamp(20px, 3vw, 28px);
             font-weight: 800;
             color: #2c5f8a;
-            margin-bottom: 20px;
+            margin-bottom: clamp(10px, 2vw, 20px);
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
         }
         
         .benefit-title i {
-            margin-right: 15px;
-            font-size: 36px;
+            margin-right: clamp(8px, 1.5vw, 15px);
+            font-size: clamp(24px, 4vw, 36px);
         }
         
         .benefit-content {
-            font-size: 22px;
+            font-size: clamp(16px, 2.5vw, 22px);
             line-height: 1.6;
+            text-align: center;
         }
         
         .stats-section {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin: 50px 0;
+            grid-template-columns: 1fr;
+            gap: clamp(10px, 2vw, 25px);
+            margin: clamp(20px, 3vw, 50px) 0;
+        }
+        
+        @media (min-width: 480px) {
+            .stats-section {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .stats-section {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         .stat-card {
             background: linear-gradient(135deg, #2c5f8a, #4CAF50);
             color: white;
             border-radius: 20px;
-            padding: 30px;
+            padding: clamp(15px, 2.5vw, 30px);
             text-align: center;
             box-shadow: 0 15px 35px rgba(44, 95, 138, 0.4);
         }
         
         .stat-value {
-            font-size: 56px;
+            font-size: clamp(36px, 6vw, 56px);
             font-weight: 900;
-            margin: 15px 0;
+            margin: clamp(8px, 1.5vw, 15px) 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .stat-label {
-            font-size: 26px;
+            font-size: clamp(18px, 3vw, 26px);
             font-weight: 700;
         }
         
@@ -347,10 +387,10 @@
             background: linear-gradient(135deg, #ff5722, #ff9800);
             color: white;
             border-radius: 20px;
-            padding: 35px;
-            margin: 40px 0;
+            padding: clamp(15px, 3vw, 35px);
+            margin: clamp(15px, 3vw, 40px) 0;
             text-align: center;
-            font-size: 32px;
+            font-size: clamp(18px, 3vw, 32px);
             font-weight: 800;
             box-shadow: 0 20px 40px rgba(255, 87, 34, 0.4);
             position: relative;
@@ -362,9 +402,9 @@
             background: linear-gradient(135deg, #2c5f8a, #2196F3);
             color: white;
             text-align: center;
-            padding: 40px;
+            padding: clamp(20px, 3vw, 40px);
             border-radius: 25px;
-            margin-top: 30px;
+            margin-top: clamp(15px, 2.5vw, 30px);
             box-shadow: 0 20px 40px rgba(44, 95, 138, 0.5);
             position: relative;
             overflow: hidden;
@@ -372,25 +412,25 @@
         }
         
         .contact-title {
-            font-size: 40px;
+            font-size: clamp(24px, 4vw, 40px);
             font-weight: 800;
-            margin-bottom: 25px;
+            margin-bottom: clamp(10px, 2vw, 25px);
         }
         
         .contact-info {
-            font-size: 48px;
+            font-size: clamp(28px, 5vw, 48px);
             font-weight: 900;
             letter-spacing: 2px;
-            margin-top: 20px;
+            margin-top: clamp(10px, 2vw, 20px);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .watermark {
             position: absolute;
-            bottom: 30px;
-            right: 40px;
+            bottom: clamp(15px, 2vw, 30px);
+            right: clamp(15px, 3vw, 40px);
             color: rgba(0,0,0,0.05);
-            font-size: 24px;
+            font-size: clamp(14px, 2.5vw, 24px);
             font-weight: bold;
             transform: rotate(-5deg);
         }
@@ -422,8 +462,8 @@
             background: linear-gradient(135deg, #2c5f8a, #4CAF50);
             color: white;
             border: none;
-            padding: 20px 40px;
-            font-size: 24px;
+            padding: clamp(15px, 2vw, 20px) clamp(20px, 3vw, 40px);
+            font-size: clamp(16px, 2.5vw, 24px);
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 15px 40px rgba(44, 95, 138, 0.7);
@@ -439,8 +479,8 @@
         
         .decoration {
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: clamp(150px, 30vw, 300px);
+            height: clamp(150px, 30vw, 300px);
             border-radius: 50%;
             opacity: 0.1;
             z-index: 0;
@@ -448,14 +488,45 @@
         
         .dec-1 {
             background: #4CAF50;
-            top: -150px;
-            right: -150px;
+            top: clamp(-75px, -15vw, -150px);
+            right: clamp(-75px, -15vw, -150px);
         }
         
         .dec-2 {
             background: #2196F3;
-            bottom: -150px;
-            left: -150px;
+            bottom: clamp(-75px, -15vw, -150px);
+            left: clamp(-75px, -15vw, -150px);
+        }
+        
+        /* Mobile specific adjustments */
+        @media (max-width: 480px) {
+            .flow-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .step-icon {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .step-content {
+                width: 100%;
+            }
+            
+            body {
+                padding: 10px;
+            }
+            
+            .pamphlet {
+                padding: 20px 15px;
+                border-radius: 20px;
+            }
         }
     </style>
 </head>
@@ -629,10 +700,34 @@
         <div class="contact-box floating">
             <div class="contact-title">सॉफ्टवेयर डेमो देखने के लिए आज ही कॉल करें।</div>
             <div class="contact-info">☎️ +91-9887353702</div>
-            <div style="font-size: 28px; margin-top: 20px;">24 घंटे हेल्पलाइन - हमारी टीम आपकी मदद के लिए तैयार है</div>
+            <div style="font-size: clamp(16px, 2.5vw, 28px); margin-top: clamp(10px, 2vw, 20px);">
+                24 घंटे हेल्पलाइन - हमारी टीम आपकी मदद के लिए तैयार है
+            </div>
         </div>
         
         <div class="watermark">Viral Marketing Power</div>
     </div>
     
-   
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> पैंप्लेट प्रिंट करें
+    </button>
+    
+    <script>
+        // Simple animation for elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.flow-step, .custom-card, .benefit-card, .stat-card');
+            
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
