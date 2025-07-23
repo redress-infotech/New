@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Grow - ग्राहकों से ग्राहक बनाएँ!</title>
+    <title>शॉप रेफरल सिस्टम - ग्राहकों से ग्राहक बनाएँ!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Hind:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -249,6 +249,147 @@
             display: inline-block;
             margin: clamp(10px, 2vw, 20px) 0;
         }
+        
+        /* NEW COMPARISON SECTION */
+        .comparison-section {
+            background: #fff;
+            border-radius: 25px;
+            padding: clamp(20px, 3vw, 40px);
+            margin: clamp(20px, 3vw, 40px) 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border: 2px solid #e0e0e0;
+        }
+        
+        .comparison-title {
+            font-size: clamp(24px, 3.5vw, 36px);
+            font-weight: 800;
+            color: #2c5f8a;
+            text-align: center;
+            margin-bottom: clamp(20px, 3vw, 40px);
+            letter-spacing: 1px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        @media (min-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .comparison-column {
+            padding: clamp(15px, 2vw, 25px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-column {
+            background: linear-gradient(135deg, #f5f7fa, #e4e7eb);
+            border: 2px solid #caced3;
+        }
+        
+        .software-column {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid #81c784;
+        }
+        
+        .column-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .social-column .column-header {
+            color: #3b5998;
+        }
+        
+        .software-column .column-header {
+            color: #4CAF50;
+        }
+        
+        .column-title {
+            font-size: clamp(22px, 3.5vw, 30px);
+            font-weight: 800;
+            margin-left: 15px;
+        }
+        
+        .column-icon {
+            font-size: clamp(28px, 4vw, 36px);
+        }
+        
+        .comparison-points {
+            list-style: none;
+        }
+        
+        .comparison-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 12px 15px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.7);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .social-column .comparison-point {
+            background: rgba(255,255,255,0.8);
+        }
+        
+        .software-column .comparison-point {
+            background: rgba(255,255,255,0.9);
+        }
+        
+        .point-icon {
+            font-size: clamp(22px, 3vw, 28px);
+            margin-right: 15px;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-column .point-icon {
+            background: #f0f2f5;
+            color: #3b5998;
+        }
+        
+        .software-column .point-icon {
+            background: #e8f5e9;
+            color: #4CAF50;
+        }
+        
+        .point-text {
+            font-size: clamp(16px, 2.5vw, 20px);
+            line-height: 1.5;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .software-highlight {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 25px;
+            text-align: center;
+            font-size: clamp(18px, 2.8vw, 26px);
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+        }
+        
+        /* END OF NEW COMPARISON SECTION */
         
         .customization-section {
             display: grid;
@@ -635,6 +776,124 @@
             </div>
         </div>
         
+        <!-- NEW COMPARISON SECTION -->
+        <div class="comparison-section">
+            <div class="comparison-title">
+                <i class="fas fa-balance-scale"></i> सोशल मीडिया मार्केटिंग vs हमारा सॉफ्टवेयर: असली तुलना
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-column social-column">
+                    <div class="column-header">
+                        <div class="column-icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="column-title">सोशल मीडिया मार्केटिंग</div>
+                    </div>
+                    
+                    <ul class="comparison-points">
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="point-text">
+                                सिर्फ व्यूज और लाइक्स मिलते हैं, असली ग्राहक नहीं
+                            </div>
+                        </li>
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="point-text">
+                                ग्लोबल रीच - लेकिन आपको चाहिए स्थानीय ग्राहक
+                            </div>
+                        </li>
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-ad"></i>
+                            </div>
+                            <div class="point-text">
+                                महंगे विज्ञापन, नतीजे गारंटीड नहीं
+                            </div>
+                        </li>
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="point-text">
+                                फॉलोअर्स बढ़ते हैं, पर दुकान पर फुटफॉल नहीं
+                            </div>
+                        </li>
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-comment-alt"></i>
+                            </div>
+                            <div class="point-text">
+                                कमेंट्स मिलते हैं, पर असली फीडबैक नहीं
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-column software-column">
+                    <div class="column-header">
+                        <div class="column-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="column-title">हमारा रेफरल सॉफ्टवेयर</div>
+                    </div>
+                    
+                    <ul class="comparison-points">
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div class="point-text">
+                                सीधे स्थानीय ग्राहकों तक पहुँच - आपके दुकान के आसपास
+                            </div>
+                        </li>
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="point-text">
+                                ग्राहक से ग्राहक जुड़ने का मौका - 90% से ज्यादा कन्वर्जन
+                            </div>
+                        </li>
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="point-text">
+                                ज़ीरो विज्ञापन खर्च - ग्राहक खुद करते हैं प्रचार
+                            </div>
+                        </li>
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="point-text">
+                                वास्तविक ग्राहकों का नेटवर्क बनता है - असली फुटफॉल
+                            </div>
+                        </li>
+                        <li class="comparison-point">
+                            <div class="point-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="point-text">
+                                हर शेयर के साथ आपकी दुकान की तारीफ जाती है - विश्वसनीयता बढ़ती है
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="software-highlight">
+                        <i class="fas fa-bullseye"></i> हमारा सॉफ्टवेयर सीधे स्थानीय ग्राहकों को टार्गेट करता है और उन्हें आपकी दुकान तक लाता है!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END OF NEW COMPARISON SECTION -->
+        
         <div class="customization-section">
             <div class="custom-card">
                 <div class="custom-title">
@@ -708,12 +967,14 @@
         <div class="watermark">Viral Marketing Power</div>
     </div>
     
-    
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> पैंप्लेट प्रिंट करें
+    </button>
     
     <script>
         // Simple animation for elements
         document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.flow-step, .custom-card, .benefit-card, .stat-card');
+            const elements = document.querySelectorAll('.flow-step, .custom-card, .benefit-card, .stat-card, .comparison-point');
             
             elements.forEach((el, index) => {
                 el.style.opacity = '0';
