@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DiscountLo - Premium Software</title>
+    <title>DiscountLo - Premium Referral Software</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -979,6 +979,7 @@
         let minutes = 2;
         let seconds = 0;
         let friendMode = false;
+        let customerReferralId = ''; // Store referral ID for customer
         
         // DOM elements
         const mobileInput = document.getElementById('mobile');
@@ -1083,8 +1084,20 @@
                 uniqueCodeDisplay.textContent = uniqueCode;
                 showPage(4);
             } else {
+                // Generate referral ID for customer
+                customerReferralId = generateReferralId();
                 showPage(3);
             }
+        }
+        
+        // Generate referral ID
+        function generateReferralId() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let id = '';
+            for (let i = 0; i < 8; i++) {
+                id += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return id;
         }
         
         // Validate friend code
@@ -1155,13 +1168,15 @@
         
         // Share via WhatsApp
         function shareViaWhatsApp() {
-            const message = encodeURIComponent("नमस्ते! Fashion Store से खरीदारी करने के लिए इस लिंक पर क्लिक करें: https://discountlo.com/ref/12345");
+            const referralLink = "https://discount-qr.netlify.app/refer-link.html?ref=" + customerReferralId;
+            const message = encodeURIComponent("नमस्ते! Fashion Store से खरीदारी करने के लिए इस लिंक पर क्लिक करें: " + referralLink);
             window.open(`https://wa.me/?text=${message}`, '_blank');
         }
         
         // Copy referral link
         function copyReferralLink() {
-            navigator.clipboard.writeText("https://discount-qr.netlify.app/refer-link.html/ref/12345");
+            const referralLink = "https://discount-qr.netlify.app/refer-link.html?ref=" + customerReferralId;
+            navigator.clipboard.writeText(referralLink);
             alert('लिंक कॉपी हो गया! आप इसे अब कहीं भी पेस्ट कर सकते हैं');
         }
         
