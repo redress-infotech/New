@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiscountLo - Premium Referral Software</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        
+        :root {
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --success-dark: #38b000;
+            --warning: #ffb703;
+            --danger: #ef476f;
+            --light: #f8f9fa;
+            --dark: #1e293b;
+            --text: #2b2d42;
+            --border: #e2e8f0;
+            --card-bg: #ffffff;
+            --background: #f0f7ff;
+        }
+        
+        body {
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: radial-gradient(circle at 10% 20%, rgba(228, 228, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 100, 0.08);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            transform: rotate(30deg);
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo i {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .business-name {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-top: 5px;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 12px;
+        }
+        
+        .step {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .step.active {
+            background: var(--primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(67, 97, 238, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 16px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            font-size: 17px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.15);
+            background: white;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.25);
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.35);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 3px 10px rgba(67, 97, 238, 0.25);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 3px solid var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .btn-success {
+            background: linear-gradient(to right, var(--success-dark), #38b000);
+        }
+        
+        .btn-success:hover {
+            box-shadow: 0 8px 20px rgba(56, 176, 0, 0.35);
+        }
+        
+        .otp-container {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        
+        .otp-container input {
+            text-align: center;
+            font-size: 22px;
+            padding: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .timer {
+            text-align: center;
+            margin-top: 18px;
+            color: var(--warning);
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .referral-box {
+            background: linear-gradient(135deg, #4361ee, #3a0ca3);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(67, 97, 238, 0.25);
+        }
+        
+        .referral-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+        
+        .referral-box > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .referral-box p {
+            margin-bottom: 15px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        
+        .code-display {
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed rgba(255,255,255,0.3);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .share-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 17px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        
+        .whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .copy {
+            background: linear-gradient(to right, var(--primary-light), var(--primary));
+            color: white;
+        }
+        
+        .coupon {
+            background: linear-gradient(135deg, #4cc9f0, #4895ef);
+            border-radius: 20px;
+            padding: 30px;
+            color: white;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(76, 201, 240, 0.25);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .coupon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.4) 10px,
+                rgba(255,255,255,0.4) 20px
+            );
+        }
+        
+        .coupon h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .coupon .code {
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px dashed rgba(255,255,255,0.3);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .coupon .terms {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+        
+        .info-card {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        
+        .info-card h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+        }
+        
+        .info-card ul {
+            padding-left: 25px;
+        }
+        
+        .info-card li {
+            margin-bottom: 12px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--dark);
+            font-size: 15px;
+            border-top: 1px solid var(--border);
+            background: var(--light);
+        }
+        
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding: 30px 0;
+        }
+        
+        .qr-code {
+            width: 260px;
+            height: 260px;
+            background: white;
+            border: 15px solid white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .redeem-section {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+        
+        .redeem-section input {
+            flex: 1;
+            padding: 18px;
+            font-size: 18px;
+        }
+        
+        .success-container {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: confetti-fall 5s linear infinite;
+        }
+        
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        
+        .success-icon {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, var(--success-dark), #38b000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 15px 35px rgba(56, 176, 0, 0.3);
+            animation: pulse 1.5s infinite;
+        }
+        
+        .success-icon i {
+            font-size: 70px;
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(56, 176, 0, 0.6); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 25px rgba(56, 176, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(56, 176, 0, 0); }
+        }
+        
+        .success-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .success-message {
+            font-size: 24px;
+            line-height: 1.6;
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), #f72585);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 20px 0;
+            box-shadow: 0 10px 20px rgba(247, 37, 133, 0.25);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 20px;
+            }
+            
+            .header {
+                padding: 25px 20px;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+            }
+            
+            .code-display {
+                font-size: 30px;
+                padding: 18px;
+            }
+            
+            .coupon .code {
+                font-size: 28px;
+            }
+            
+            .qr-code {
+                width: 240px;
+                height: 240px;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .success-title {
+                font-size: 36px;
+            }
+            
+            .success-message {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .code-display {
+                font-size: 26px;
+            }
+            
+            .qr-code {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .success-title {
+                font-size: 32px;
+            }
+            
+            .success-message {
+                font-size: 19px;
+            }
+            
+            .discount-badge {
+                font-size: 24px;
+                padding: 10px 25px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .qr-code {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .success-icon {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .success-icon i {
+                font-size: 60px;
+            }
+            
+            .success-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-gift"></i>
+                DiscountLo
+            </div>
+            <div class="business-name">Fashion Store</div>
+        </div>
+        
+        <div class="content">
+            <!-- Page 0: QR Scan -->
+            <div id="page0" class="page active">
+                <h2>Welcome from DiscountLO</h2>
+                
+                <div class="qr-container">
+                   
+                    <p style="text-align: center; font-size: 18px; margin-top: 10px;">
+                        आपके दोस्त ने Fashion Store से शॉपिंग की है और आपके लिए खास तौर पर एक डिस्काउंट कूपन भेजा है।
+अपने सरप्राइज़ कूपन वाउचर को देखने के लिए नीचे दिए गए "Next" बटन पर क्लिक करें।
+                    </p>
+                    
+                    <button class="btn" onclick="showPage(1)">
+                        <i class="fas fa-mobile-alt"></i> Next
+                    </button>
+                </div>
+                
+                
+            </div>
+            
+            <!-- Page 1: Mobile Number Entry -->
+            <div id="page1" class="page">
+                <div class="step-indicator">
+                    <div class="step active"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                </div>
+                
+                <h2>अपना मोबाइल नंबर दर्ज करें</h2>
+                
+                <div class="form-group">
+                    <label for="mobile">मोबाइल नंबर</label>
+                    <input type="tel" id="mobile" placeholder="10 अंकों का मोबाइल नंबर" maxlength="10">
+                </div>
+                
+                <button class="btn" onclick="sendOTP()">OTP भेजें</button>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-shield-alt"></i> सुरक्षा सूचना</h4>
+                    <ul>
+                        <li>आपका मोबाइल नंबर सुरक्षित रखा जाता है</li>
+                        <li>किसी के साथ भी OTP साझा न करें</li>
+                        <li>हम आपके नंबर पर कभी भी स्पैम नहीं भेजते</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Page 2: OTP Verification -->
+            <div id="page2" class="page">
+                <div class="step-indicator">
+                    <div class="step"></div>
+                    <div class="step active"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                </div>
+                
+                <h2>OTP वेरिफिकेशन</h2>
+                <p style="text-align: center; margin-bottom: 25px; font-size: 18px;">
+                    हमने आपके मोबाइल नंबर <strong id="mobile-display" style="color: var(--primary);">XXXXXX7890</strong> पर OTP भेजा है
+                </p>
+                
+                <div class="form-group">
+                    <label for="otp">OTP दर्ज करें</label>
+                    <div class="otp-container">
+                        <input type="text" maxlength="1" class="otp-input">
+                        <input type="text" maxlength="1" class="otp-input">
+                        <input type="text" maxlength="1" class="otp-input">
+                        <input type="text" maxlength="1" class="otp-input">
+                        <input type="text" maxlength="1" class="otp-input">
+                        <input type="text" maxlength="1" class="otp-input">
+                    </div>
+                </div>
+                
+                <div class="timer" id="timer">02:00</div>
+                
+                <button class="btn" onclick="verifyOTP()">वेरीफाई करें</button>
+                <button class="btn btn-outline" onclick="resendOTP()">OTP पुनः भेजें</button>
+            </div>
+            
+            <!-- Page 3: Customer Welcome -->
+            <div id="page3" class="page">
+                <div class="step-indicator">
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step active"></div>
+                    <div class="step"></div>
+                </div>
+                
+                <h2>Fashion Store CODE "SHOP01"</h2>
+                
+                <div class="referral-box">
+                    <p>आपके मित्र ने हाल ही में Fashion Store से खरीदारी की है।
+यदि आप उन्हें यह कोड SHOP01 भेज दें, तो वे अपने डिस्काउंट का लाभ आसानी से प्राप्त कर सकेंगे।</p>
+                    <p>अपने कूपन वाउचर तक पहुँचने के लिए, कृपया इसे अपने किसी एक मित्र के साथ साझा करें।
+जब आपका मित्र आपको एक कोड भेजेगा और आप उसे सबमिट करेंगे, तो आपका सरप्राइज़ गिफ्ट वाउचर आपके लिए अनलॉक हो जाएगा।</p>
+                    
+                    <div class="share-buttons">
+                        <div class="share-btn whatsapp" onclick="shareViaWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> WhatsApp पर भेजें
+                        </div>
+                        <div class="share-btn copy" onclick="copyReferralLink()">
+                            <i class="fas fa-copy"></i> कॉपी करें
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="friend-code">मित्र का कोड दर्ज करें</label>
+                    <input type="text" id="friend-code" placeholder="दोस्त द्वारा भेजा गया कोड">
+                </div>
+                
+                <button class="btn" onclick="validateCode()">कूपन प्राप्त करें</button>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-lightbulb"></i> महत्वपूर्ण जानकारी</h4>
+                    <ul>
+                        <li>हर कोड एक बार के लिए वैध है</li>
+                        <li>कोड 48 घंटे के बाद समाप्त हो जाएगा</li>
+                        <li>कोड का दुरुपयोग न हो इसके लिए यह मोबाइल नंबर से जुड़ा है</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Page 4: Friend Welcome -->
+            <div id="page4" class="page">
+                <div class="step-indicator">
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step active"></div>
+                    <div class="step"></div>
+                </div>
+                
+                <h2>DiscountLo सॉफ्टवेयर में आपका स्वागत है</h2>
+                
+                <div class="referral-box">
+                    <p>आपके मित्र ने Fashion Store से खरीदारी की है। कृपया यह कोड उन्हें भेजें ताकि उन्हें डिस्काउंट मिल सके</p>
+                    
+                    <div class="code-display" id="unique-code">5A9B2C</div>
+                    
+                    <p>आपके लिए भी Fashion Store की तरफ से एक सरप्राइज़ गिफ्ट वाउचर है। इसे प्राप्त करने के लिए इस लिंक को अपने किसी मित्र को भेजें</p>
+                    
+                    <div class="share-buttons">
+                        <div class="share-btn whatsapp" onclick="shareViaWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> WhatsApp पर भेजें
+                        </div>
+                        <div class="share-btn copy" onclick="copyReferralLink()">
+                            <i class="fas fa-copy"></i> कॉपी करें
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-gift"></i> अपना उपहार कैसे प्राप्त करें</h4>
+                    <ul>
+                        <li>इस लिंक को अपने किसी मित्र को भेजें</li>
+                        <li>जब आपका मित्र लिंक खोलेगा और अपना मोबाइल नंबर दर्ज करेगा</li>
+                        <li>आपके मित्र को एक यूनिक कोड मिलेगा</li>
+                        <li>उस कोड को आप यहाँ दर्ज करके अपना गिफ्ट वाउचर प्राप्त कर सकते हैं</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Page 5: Coupon Display -->
+            <div id="page5" class="page">
+                <div class="step-indicator">
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step active"></div>
+                </div>
+                
+                <h2>आपका डिस्काउंट कूपन</h2>
+                
+                <div class="coupon">
+                    <h3>विशेष छूट</h3>
+                    <p>Fashion Store में आपकी वर्तमान खरीदारी पर</p>
+                    <div class="code">20% OFF</div>
+                    <p>कूपन कोड: <strong>FS20-5A9B2C</strong></p>
+                    <div class="terms">48 घंटों के भीतर रिडीम करें | एक बार प्रयोग करने योग्य</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="redeem-code">रिडीम कोड दर्ज करें (दुकानदार के लिए)</label>
+                    <input type="text" id="redeem-code" placeholder="रिडीम कोड दर्ज करें">
+                </div>
+                
+                <button class="btn btn-success" onclick="redeemCoupon()">
+                    <i class="fas fa-check-circle"></i> कूपन रिडीम करें
+                </button>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-store"></i> कूपन का उपयोग कैसे करें</h4>
+                    <ul>
+                        <li>अपने नजदीकी Fashion Store शोरूम पर जाएँ</li>
+                        <li>खरीदारी करने के बाद कैशियर को यह कूपन दिखाएँ</li>
+                        <li>कैशियर कोड की वैधता चेक करेगा</li>
+                        <li>आपको तुरंत 20% की छूट मिल जाएगी</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Page 6: Redeemed Successfully -->
+            <div id="page6" class="page">
+                <div class="success-container" id="success-container">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    
+                    <h1 class="success-title">बधाई हो!</h1>
+                    
+                    <p class="success-message">
+                        आपका कूपन सफलतापूर्वक रिडीम हो गया है<br>
+                        आपकी वर्तमान खरीदारी पर छूट लागू की गई है
+                    </p>
+                    
+                    <div class="discount-badge">
+                        ₹500 की छूट मिली!
+                    </div>
+                    
+                    <div class="info-card" style="margin-top: 30px;">
+                        <h4><i class="fas fa-receipt"></i> खरीदारी विवरण</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 19px;">
+                                <span>कुल राशि:</span>
+                                <span>₹2500</span>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 19px; color: #38b000; font-weight: 600;">
+                                <span>छूट:</span>
+                                <span>-₹500</span>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; margin-top: 25px; padding-top: 20px; border-top: 2px dashed var(--border); font-size: 24px; font-weight: 700;">
+                                <span>भुगतान राशि:</span>
+                                <span>₹2000</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn" style="margin-top: 30px;" onclick="showPage(0)">
+                        <i class="fas fa-home"></i> होम पर वापस जाएं
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 DiscountLo Referral Software. सभी अधिकार सुरक्षित</p>
+            <p><a href="#">गोपनीयता नीति</a> | <a href="#">उपयोग की शर्तें</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Current page state
+        let currentPage = 0;
+        let mobileNumber = '';
+        let timerInterval;
+        let minutes = 2;
+        let seconds = 0;
+        let friendMode = false;
+        
+        // DOM elements
+        const mobileInput = document.getElementById('mobile');
+        const mobileDisplay = document.getElementById('mobile-display');
+        const otpInputs = document.querySelectorAll('.otp-input');
+        const timerDisplay = document.getElementById('timer');
+        const uniqueCodeDisplay = document.getElementById('unique-code');
+        const successContainer = document.getElementById('success-container');
+        
+        // Initialize OTP inputs
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', () => {
+                if (input.value && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            });
+            
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !input.value && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
+        });
+        
+        // Send OTP function
+        function sendOTP() {
+            mobileNumber = mobileInput.value;
+            
+            // Simple validation
+            if (!mobileNumber || mobileNumber.length !== 10 || isNaN(mobileNumber)) {
+                alert('कृपया मान्य 10 अंकों का मोबाइल नंबर दर्ज करें');
+                return;
+            }
+            
+            // In a real app, this would call your backend
+            mobileDisplay.textContent = 'XXXXXX' + mobileNumber.slice(6);
+            showPage(2);
+            
+            // Start OTP timer
+            startTimer();
+        }
+        
+        // Start OTP timer
+        function startTimer() {
+            minutes = 2;
+            seconds = 0;
+            updateTimerDisplay();
+            
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(timerInterval);
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                updateTimerDisplay();
+            }, 1000);
+        }
+        
+        // Update timer display
+        function updateTimerDisplay() {
+            timerDisplay.textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        // Resend OTP function
+        function resendOTP() {
+            // In a real app, this would call your backend to resend OTP
+            alert(`OTP पुनः भेजा गया: ${generateOTP()}`);
+            startTimer();
+        }
+        
+        // Verify OTP function
+        function verifyOTP() {
+            // Get entered OTP
+            let enteredOTP = '';
+            otpInputs.forEach(input => {
+                enteredOTP += input.value;
+            });
+            
+            // Simple validation (in real app, verify with backend)
+            if (enteredOTP.length !== 6) {
+                alert('कृपया पूरा OTP दर्ज करें');
+                return;
+            }
+            
+            // Clear timer
+            clearInterval(timerInterval);
+            
+            // Determine which page to show next based on URL
+            const urlParams = new URLSearchParams(window.location.search);
+            friendMode = urlParams.has('ref');
+            
+            if (friendMode) {
+                // Generate a unique code for the friend
+                const uniqueCode = generateUniqueCode();
+                uniqueCodeDisplay.textContent = uniqueCode;
+                showPage(4);
+            } else {
+                showPage(3);
+            }
+        }
+        
+        // Validate friend code
+        function validateCode() {
+            const friendCode = document.getElementById('friend-code').value;
+            
+            if (!friendCode) {
+                alert('कृपया मित्र का कोड दर्ज करें');
+                return;
+            }
+            
+            // In a real app, this would validate with backend
+            showPage(5);
+        }
+        
+        // Redeem coupon
+        function redeemCoupon() {
+            const redeemCode = document.getElementById('redeem-code').value;
+            
+            if (!redeemCode) {
+                alert('कृपया रिडीम कोड दर्ज करें');
+                return;
+            }
+            
+            // Create confetti effect
+            createConfetti();
+            
+            // In a real app, this would validate with backend
+            setTimeout(() => {
+                showPage(6);
+            }, 1000);
+        }
+        
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#4361ee', '#3a0ca3', '#f72585', '#4cc9f0', '#38b000', '#ffb703'];
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.animationDelay = `${Math.random() * 5}s`;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = `${Math.random() * 12 + 6}px`;
+                confetti.style.height = confetti.style.width;
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Generate a unique code
+        function generateUniqueCode() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let code = '';
+            for (let i = 0; i < 6; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+        
+        // Generate OTP (demo only)
+        function generateOTP() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+        
+        // Share via WhatsApp
+        function shareViaWhatsApp() {
+            const message = encodeURIComponent("नमस्ते! Fashion Store से खरीदारी करने के लिए इस लिंक पर क्लिक करें: https://discountlo.com/ref/12345");
+            window.open(`https://wa.me/?text=${message}`, '_blank');
+        }
+        
+        // Copy referral link
+        function copyReferralLink() {
+            navigator.clipboard.writeText("https://discountlo.com/ref/12345");
+            alert('लिंक कॉपी हो गया! आप इसे अब कहीं भी पेस्ट कर सकते हैं');
+        }
+        
+        // Show specific page
+        function showPage(pageNumber) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the requested page
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+            currentPage = pageNumber;
+            
+            // Update step indicator
+            if (pageNumber > 0) {
+                document.querySelectorAll('.step').forEach((step, index) => {
+                    step.classList.toggle('active', index === pageNumber - 1);
+                });
+            }
+        }
+        
+        // Initialize the app
+        function initApp() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isFriend = urlParams.has('ref');
+            
+            if (isFriend) {
+                document.querySelector('.business-name').textContent = "आपके मित्र द्वारा भेजा गया";
+                document.querySelector('.logo').innerHTML = '<i class="fas fa-user-friends"></i> मित्र का रेफरल';
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = initApp;
+    </script>
+</body>
+</html>
