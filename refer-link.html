@@ -863,6 +863,14 @@
                     </div>
                 </div>
                 
+                <!-- ADDED CODE VALIDATION SECTION -->
+                <div class="form-group">
+                    <label for="friend-code-2">मित्र का कोड दर्ज करें</label>
+                    <input type="text" id="friend-code-2" placeholder="दोस्त द्वारा भेजा गया कोड">
+                </div>
+                
+                <button class="btn" onclick="validateCode()">कूपन प्राप्त करें</button>
+                
                 <div class="info-card">
                     <h4><i class="fas fa-gift"></i> अपना उपहार कैसे प्राप्त करें</h4>
                     <ul>
@@ -970,6 +978,7 @@
         let minutes = 2;
         let seconds = 0;
         let friendMode = false;
+        let currentUserReferralCode = '';
         
         // DOM elements
         const mobileInput = document.getElementById('mobile');
@@ -1080,7 +1089,10 @@
         
         // Validate friend code
         function validateCode() {
-            const friendCode = document.getElementById('friend-code').value;
+            // Check which page we're on
+            const friendCode = currentPage === 3 ? 
+                document.getElementById('friend-code').value :
+                document.getElementById('friend-code-2').value;
             
             if (!friendCode) {
                 alert('कृपया मित्र का कोड दर्ज करें');
@@ -1146,13 +1158,13 @@
         
         // Share via WhatsApp
         function shareViaWhatsApp() {
-            const message = encodeURIComponent("नमस्ते! Fashion Store से खरीदारी करने के लिए इस लिंक पर क्लिक करें: https://discountlo.com/ref/12345");
+            const message = encodeURIComponent("नमस्ते! Fashion Store से खरीदारी करने के लिए इस लिंक पर क्लिक करें: https://discount-qr.netlify.app/refer-link.html?ref=" + currentUserReferralCode);
             window.open(`https://wa.me/?text=${message}`, '_blank');
         }
         
         // Copy referral link
         function copyReferralLink() {
-            navigator.clipboard.writeText("https://discountlo.com/ref/12345");
+            navigator.clipboard.writeText("https://discount-qr.netlify.app/refer-link.html?ref=" + currentUserReferralCode);
             alert('लिंक कॉपी हो गया! आप इसे अब कहीं भी पेस्ट कर सकते हैं');
         }
         
@@ -1172,6 +1184,11 @@
                 document.querySelectorAll('.step').forEach((step, index) => {
                     step.classList.toggle('active', index === pageNumber - 1);
                 });
+            }
+            
+            // Generate referral code if needed
+            if (pageNumber === 3 || pageNumber === 4) {
+                currentUserReferralCode = generateUniqueCode();
             }
         }
         
